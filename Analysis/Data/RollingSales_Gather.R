@@ -45,9 +45,23 @@ bk$year.built <- as.numeric(as.character(bk$year.built))
 ## do a bit of exploration to make sure there's not anything
 ## weird going on with sale prices
 attach(bk)
-hist(sale.price.n) # Something weird here
+hist(sale.price.n, breaks = 10000, xlim = range(0,2e7)) # Something weird here
 hist(sale.price.n[sale.price.n>0])
-#### NEED TO FIGURE OUT WHY ERRORING #### hist(gross.sqft[sale.price.n==0])
+
+#added color and narrowed the x axis limits
+    options(scipen = 9999999)
+    sale.mean <- mean(bk$sale.price.n, na.rm=TRUE)
+    sale.sd <- sd(bk$sale.price.n, na.rm=TRUE)
+    xlimit <- as.integer(sale.mean + 2*sale.sd)  #narrow the upper range of X axis
+hist(sale.price.n, main = "improved histogram", xlab = "Sale Price", xlim = c(0, xlimit),breaks = 1000, col = "red")
+
+#### NEED TO FIGURE OUT WHY ERRORING #### 
+hist(gross.sqft[sale.price.n==0], main="original")  # original code, doesn't work
+#suggested improvement
+hist(gross.sqft[!sale.price.n==0],main = "Added ! to exclude all 0 values")
+
+hist(sale.price.n[sale.price.n>0], main ="Original histogram n>0",breaks = 1000, xlim = range(0,2e7))  # Original histogram
+hist(sale.price.n[sale.price.n>100], main = "New version N>100", breaks = 10000, col="green", xlim = c(0,1800000)) #Suggested histogram
 detach(bk)
 
 ## keep only the actual sales
