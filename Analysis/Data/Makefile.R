@@ -15,11 +15,15 @@
 
 require(gdata)
 require(plyr) #Added by Monnie McGee
+# Randy Setting
+#setwd("~/GitHub/testrepo/week3BronxHousing/TheBronxHousingCosts/Analysis/Data")
+
 setwd("~/GitHub/MSDS_6306/LiveSessionHW3-4/TheBronxHousingCosts/Analysis/Data") #Modified for Chris' pc
 
 source("RollingSales_Gather.R")
 source("RollingSales_MergeData.R")
 
 setwd("..")
+
 
 source("RollingSales_Analysis.R")

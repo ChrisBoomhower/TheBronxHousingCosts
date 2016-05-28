@@ -45,6 +45,7 @@ bk$year.built <- as.numeric(as.character(bk$year.built))
 ## do a bit of exploration to make sure there's not anything
 ## weird going on with sale prices
 attach(bk)
+<<<<<<< HEAD
 hist(sale.price.n, breaks = 10000, xlim = range(0,2e7)) # Something weird here
 hist(sale.price.n[sale.price.n>0])
 
@@ -62,6 +63,15 @@ hist(gross.sqft[!sale.price.n==0],main = "Added ! to exclude all 0 values")
 
 hist(sale.price.n[sale.price.n>0], main ="Original histogram n>0",breaks = 1000, xlim = range(0,2e7))  # Original histogram
 hist(sale.price.n[sale.price.n>100], main = "New version N>100", breaks = 10000, col="green", xlim = c(0,1800000)) #Suggested histogram
+=======
+hist(sale.price.n) # Something weird here
+hist(sale.price.n[sale.price.n>0], breaks = 2000) # Breaks modified by Chris
+
+if(length(which(sale.price.n == 0)) != 0) { # Conditional added by Chris to account for when 0's
+    hist(gross.sqft[sale.price.n==0])       # do not exist in data such as in Bronx data set
+} else { hist(gross.sqft[sale.price.n>0], breaks = 1000) }
+
+>>>>>>> 256b5648750039ac26cdf0ab746a932794507347
 detach(bk)
 
 ## keep only the actual sales
