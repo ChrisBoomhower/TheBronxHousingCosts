@@ -46,8 +46,12 @@ bk$year.built <- as.numeric(as.character(bk$year.built))
 ## weird going on with sale prices
 attach(bk)
 hist(sale.price.n) # Something weird here
-hist(sale.price.n[sale.price.n>0])
-#### NEED TO FIGURE OUT WHY ERRORING #### hist(gross.sqft[sale.price.n==0])
+hist(sale.price.n[sale.price.n>0], breaks = 2000) # Breaks modified by Chris
+
+if(length(which(sale.price.n == 0)) != 0) { # Conditional added by Chris to account for when 0's
+    hist(gross.sqft[sale.price.n==0])       # do not exist in data such as in Bronx data set
+} else { hist(gross.sqft[sale.price.n>0], breaks = 1000) }
+
 detach(bk)
 
 ## keep only the actual sales
