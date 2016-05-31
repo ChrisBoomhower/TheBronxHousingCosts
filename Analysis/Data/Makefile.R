@@ -15,8 +15,9 @@
 
 require(gdata)
 require(plyr) #Added by Monnie McGee
-# Randy Setting
-#setwd("~/GitHub/testrepo/week3BronxHousing/TheBronxHousingCosts/Analysis/Data")
+# Randy Setting  I'm getting an error in the Source(rollingsales_gather) deal with it later
+#setwd("~/GitHub/TheBronxHousingCosts/Analysis/Data")
+#getwd()
 
 setwd("~/GitHub/MSDS_6306/LiveSessionHW3-4/TheBronxHousingCosts/Analysis/Data") #Modified for Chris' pc
 
