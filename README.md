@@ -23,4 +23,13 @@ Image courtesy of Wordpress.com, 2008
 
 <br>
 
-### To access our Paper writeup, please click the following link: [Link to TheBronxHousingCosts_Paper.md](https://github.com/ChrisBoomhower/TheBronxHousingCosts/blob/master/Paper/TheBronxHousingCosts_Paper.md "https://github.com/ChrisBoomhower/TheBronxHousingCosts/blob/master/Paper/TheBronxHousingCosts_Paper.md")
+####Key project files are as follows:
+* #####**/Analysis/Data/rollingsales_bronx.csv** - This is the raw NYC-Bronx home sale price data analyzed during this project and was obtained from [http://www1.nyc.gov/home/search/index.page?search-terms=Rolling+sales+update](http://www1.nyc.gov/home/search/index.page?search-terms=Rolling+sales+update)
+* #####**/Analysis/Data/RollingSales_Gather.R** - This R module imports, cleans, and explores the data in preparation for merging and analysis.
+* #####**/Analysis/Data/RollingSales_MergeData.R** - This R module extracts the clean data of interest and assigns it to a data frame for analysis.
+* #####**/Analysis/RollingSales_Analysis.R** - This R module plots the data of interest, sale price with respect to square footage, and further assess the effects of outliers.
+* #####**/Paper/TheBronxHousingCosts_Paper.md** - This is the central writeup for the project and sources all project code modules to display code outputs and to provide project flow summary and analysis discussion.
+
+<br>
+
+####<font color='red'>**To access our Paper writeup, please click the following link:**</font> [Link to TheBronxHousingCosts_Paper.md](https://github.com/ChrisBoomhower/TheBronxHousingCosts/blob/master/Paper/TheBronxHousingCosts_Paper.md "https://github.com/ChrisBoomhower/TheBronxHousingCosts/blob/master/Paper/TheBronxHousingCosts_Paper.md")

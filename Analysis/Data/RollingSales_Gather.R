@@ -61,7 +61,7 @@ detach(bk)
 
 ## keep only the records where sale price <> 0
 bk.sale <- bk[bk$sale.price.n!=0,]
-str(bk.sale) # is this working, still says 20113 obs?????
+str(bk.sale)
 
 plot(bk.sale$gross.sqft,bk.sale$sale.price.n, main ="default plot in example code")
 plot(bk.sale$gross.sqft,bk.sale$sale.price.n, xlim = c(0,15000), ylim = c(0,1800000), main ="reduce x and y limits to get a better plot")
