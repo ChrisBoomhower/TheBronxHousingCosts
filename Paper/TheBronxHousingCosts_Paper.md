@@ -162,7 +162,7 @@ source("RollingSales_MergeData.R")
 ```
 
 #Analysis
-### By plotting the log of 1, 2, and 3-family dwelling data, it is observed there is an exponential relationship between sale price and gross sqft. As gross sqft increases exponentially, sale price does as well. The plots of log data also provide clear indication that the original data had many outliers. By removing the outliers, only valid data can be reviewed further. While the author chose to remove the outliers from the original data, we chose to leave the outliers to embarass the individuals who conducted this study.
+### By plotting the log of 1, 2, and 3-family dwelling data, it is observed there is an exponential relationship between sale price and gross sqft. As gross sqft increases exponentially, sale price does as well. The plots of log data also provide clear indication that the original data had many outliers. By removing the outliers, only valid data can be reviewed further. While the example code author chose to remove the outliers from the original data, we chose to leave the outliers to embarass the individuals who originally collected the data.
 
 
 ```r
@@ -174,4 +174,4 @@ source("RollingSales_Analysis.R")
 ![](TheBronxHousingCosts_Paper_files/figure-html/unnamed-chunk-3-1.png)<!-- -->![](TheBronxHousingCosts_Paper_files/figure-html/unnamed-chunk-3-2.png)<!-- -->
 
 # Future activities
-### We learned that setting the same local directory path on each team members PC is important for sharing code.  We didn’t do this and had trouble running the code pulled from git hub locally without tweaks to directory paths. We also discovered that Rmarkdown resets the working directory between each code chunk.  We attempted to set a global directory but could not determine correct syntax.  In the interest of time, we chose the brute force method of specifying the working directory in each code chunk.
+### We learned that setting the same local directory path on each team members PC is important for sharing code.  We didn’t do this and had trouble running the code pulled from GitHub locally without tweaks to directory paths. We also discovered that Rmarkdown resets the working directory between each code chunk.  We attempted to set a global directory but could not determine correct syntax.  In the interest of time, we chose the brute force method of specifying the working directory in each code chunk.
