@@ -2,7 +2,9 @@
 ##### Live Session Assignment 3 & 4
 ##### 5/31/16
 
-![Image courtesy of Wordpress.com, 2008](https://specialedandme.files.wordpress.com/2008/03/confused-look.jpg?w=250&h=193)
+![](https://specialedandme.files.wordpress.com/2008/03/confused-look.jpg?w=250&h=193)
+
+Image courtesy of Wordpress.com, 2008
 
 <br>
 
