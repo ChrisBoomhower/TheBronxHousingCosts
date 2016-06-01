@@ -20,4 +20,4 @@ summary(bk.homes[which(bk.homes$sale.price.n<100000),])
 ## remove outliers that seem like they weren't actual sales
 bk.homes$outliers <- (log(bk.homes$sale.price.n) <=5) + 0
 bk.homes <- bk.homes[which(bk.homes$outliers==0),]
-plot(log(bk.homes$gross.sqft),log(bk.homes$sale.price.n))
+plot(log(bk.homes$gross.sqft),log(bk.homes$sale.price.n), main = "Plot log of gross sqft vs sale price for outliers")
