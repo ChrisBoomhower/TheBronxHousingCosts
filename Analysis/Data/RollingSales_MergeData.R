@@ -4,7 +4,8 @@
 # Live Session Assignment 3/4
 # 06/02/2016
 #
-# RollingSales_MergeData.R: ????????????????
+# RollingSales_MergeData.R: This R module extracts the cleaned
+#                           data of interest for analysis.
 #
 # Project R code modified from Benjamin Reddy's code, taken
 # from pages 49-50 of O'Neil and Schutt

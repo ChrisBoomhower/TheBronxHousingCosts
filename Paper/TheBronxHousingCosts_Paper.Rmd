@@ -1,0 +1,46 @@
+---
+title: "TheBronxHousingCosts_Paper"
+author: "Jose Quinonez, Randy Lisbona, Chris Boomhower"
+date: "May 31, 2016"
+output:
+  html_document:
+    keep_md: true
+---
+
+# Paper Intro
+### This markdown writeup is meant to both link all project source code into one coherent project output and to also provide further details regarding all outputs.
+
+# Gathering the Data
+### By exploring the sale price and gross sqft data in histogram form, it is determined the data is heavily right skewed and that there are several outliers.
+
+### When plotting the sale price with respect to gross sqft, it is difficult to determine the relationship. But, when comparing the log of each parameter, it is apparent they share an exponential relationship with one another. As gross sqft increases exponentially, sale price does as well.
+
+```{r}
+require(gdata)
+require(plyr) #Added by Monnie McGee
+setwd("..")
+setwd("Analysis/Data")
+source("RollingSales_Gather.R")
+```
+
+# Merging the Data
+### After cleaning the data, only data related to 1, 2, and 3-family homes is assigned to a data frame for further analysis.
+
+```{r}
+getwd()
+setwd("..")
+setwd("Analysis/Data")
+source("RollingSales_MergeData.R")
+```
+
+#Analysis
+### By plotting the log of 1, 2, and 3-family dwelling data, it is observed there is an exponential relationship between sale price and gross sqft. As gross sqft increases exponentially, sale price does as well. The plots of log data also provide clear indication that the original data had many outliers. By removing the outliers, only valid data can be reviewed further. While the author chose to remove the outliers from the original data, we chose to leave the outliers to embarass the individuals who conducted this study.
+
+```{r}
+setwd("..")
+setwd("Analysis")
+source("RollingSales_Analysis.R")
+```
+
+# Future activities
+### We learned that setting the same local directory path on each team members PC is important for sharing code.  We didn’t do this and had trouble running the code pulled from git hub locally without tweaks to directory paths. We also discovered that Rmarkdown resets the working directory between each code chunk.  We attempted to set a global directory but could not determine correct syntax.  In the interest of time, we chose the brute force method of specifying the working directory in each code chunk.

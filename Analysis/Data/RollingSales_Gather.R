@@ -4,7 +4,8 @@
 # Live Session Assignment 3/4
 # 06/02/2016
 #
-# RollingSales_Gather.R: ????????????????
+# RollingSales_Gather.R: This R module imports, explores
+#                        and cleans the data.
 #
 # Project R code modified from Benjamin Reddy's code, taken
 # from pages 49-50 of O'Neil and Schutt
@@ -45,36 +46,17 @@ bk$year.built <- as.numeric(as.character(bk$year.built))
 ## do a bit of exploration to make sure there's not anything
 ## weird going on with sale prices
 attach(bk)
-<<<<<<< HEAD
-hist(sale.price.n, breaks = 10000, xlim = range(0,2e7)) # Something weird here
-hist(sale.price.n[sale.price.n>0])
+# Explore histogram of sales prices
+hist(sale.price.n, main = "Histogram of all sale prices", xlab = "Sale Price",breaks = 100, col = "red")
 
-#added color and narrowed the x axis limits
-    options(scipen = 9999999)
-    sale.mean <- mean(bk$sale.price.n, na.rm=TRUE)
-    sale.sd <- sd(bk$sale.price.n, na.rm=TRUE)
-    xlimit <- as.integer(sale.mean + 2*sale.sd)  #narrow the upper range of X axis
-hist(sale.price.n, main = "improved histogram", xlab = "Sale Price", xlim = c(0, xlimit),breaks = 1000, col = "red")
+# Explore histogram of sale price where the price is less than $1.8M
+hist(sale.price.n[sale.price.n>0], main = "Histogram of all sale prices < $1.8M", breaks = 10000, col="green", xlim = c(0,1800000), xlab = "Sale Price")
 
-#### NEED TO FIGURE OUT WHY ERRORING #### 
-#hist(gross.sqft[sale.price.n==0], main="original")  # original code, doesn't work
-# Histogram of gross sqft where sale price <> $0
-hist(gross.sqft[!sale.price.n==0],main = "Added ! to exclude all 0 values")
-
-#hist(sale.price.n[sale.price.n>0], main ="Original histogram n>0",breaks = 1000, xlim = range(0,2e7))  # Original histogram
-
-# Histogram of sale price where the price is greater than $100
-hist(sale.price.n[sale.price.n>100], main = "New version N>100", breaks = 10000, col="green", xlim = c(0,1800000)) #Suggested histogram
-=======
-# hist(sale.price.n) # Something weird here
-# hist(sale.price.n[sale.price.n>0], breaks = 2000) # Breaks modified by Chris
-
-# Another histogram on sq ft
+# Explore histogram on sq ft by missing or $0 sales prices
 if(length(which(sale.price.n == 0)) != 0) { # Conditional added by Chris to account for when 0's
-    hist(gross.sqft[sale.price.n==0])       # do not exist in data such as in Bronx data set
-} else { hist(gross.sqft[sale.price.n>0], breaks = 1000) }
+    hist(gross.sqft[sale.price.n==0], main = "Histogram of home square footage with $0 sale prices")       # do not exist in data such as in Bronx data set
+} else { hist(gross.sqft[is.na(sale.price.n)], main = "Histogram of home square footage with missing sales prices", breaks = 1000, xlab = "Gross sqft") }
 
->>>>>>> 256b5648750039ac26cdf0ab746a932794507347
 detach(bk)
 
 ## keep only the records where sale price <> 0
@@ -83,4 +65,4 @@ str(bk.sale) # is this working, still says 20113 obs?????
 
 plot(bk.sale$gross.sqft,bk.sale$sale.price.n, main ="default plot in example code")
 plot(bk.sale$gross.sqft,bk.sale$sale.price.n, xlim = c(0,15000), ylim = c(0,1800000), main ="reduce x and y limits to get a better plot")
-plot(log(bk.sale$gross.sqft),log(bk.sale$sale.price.n), xlim = c(6,12), ylim = c(10,18), main = "plot log of sqft vs sale price")
+plot(log(bk.sale$gross.sqft, base = 10),log(bk.sale$sale.price.n, base = 10), main = "plot log of sqft vs sale price")
