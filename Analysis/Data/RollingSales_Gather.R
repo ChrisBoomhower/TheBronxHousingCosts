@@ -57,16 +57,19 @@ hist(sale.price.n[sale.price.n>0])
 hist(sale.price.n, main = "improved histogram", xlab = "Sale Price", xlim = c(0, xlimit),breaks = 1000, col = "red")
 
 #### NEED TO FIGURE OUT WHY ERRORING #### 
-hist(gross.sqft[sale.price.n==0], main="original")  # original code, doesn't work
-#suggested improvement
+#hist(gross.sqft[sale.price.n==0], main="original")  # original code, doesn't work
+# Histogram of gross sqft where sale price <> $0
 hist(gross.sqft[!sale.price.n==0],main = "Added ! to exclude all 0 values")
 
-hist(sale.price.n[sale.price.n>0], main ="Original histogram n>0",breaks = 1000, xlim = range(0,2e7))  # Original histogram
+#hist(sale.price.n[sale.price.n>0], main ="Original histogram n>0",breaks = 1000, xlim = range(0,2e7))  # Original histogram
+
+# Histogram of sale price where the price is greater than $100
 hist(sale.price.n[sale.price.n>100], main = "New version N>100", breaks = 10000, col="green", xlim = c(0,1800000)) #Suggested histogram
 =======
-hist(sale.price.n) # Something weird here
-hist(sale.price.n[sale.price.n>0], breaks = 2000) # Breaks modified by Chris
+# hist(sale.price.n) # Something weird here
+# hist(sale.price.n[sale.price.n>0], breaks = 2000) # Breaks modified by Chris
 
+# Another histogram on sq ft
 if(length(which(sale.price.n == 0)) != 0) { # Conditional added by Chris to account for when 0's
     hist(gross.sqft[sale.price.n==0])       # do not exist in data such as in Bronx data set
 } else { hist(gross.sqft[sale.price.n>0], breaks = 1000) }
@@ -74,8 +77,10 @@ if(length(which(sale.price.n == 0)) != 0) { # Conditional added by Chris to acco
 >>>>>>> 256b5648750039ac26cdf0ab746a932794507347
 detach(bk)
 
-## keep only the actual sales
-
+## keep only the records where sale price <> 0
 bk.sale <- bk[bk$sale.price.n!=0,]
-plot(bk.sale$gross.sqft,bk.sale$sale.price.n)
-plot(log(bk.sale$gross.sqft),log(bk.sale$sale.price.n))
+str(bk.sale) # is this working, still says 20113 obs?????
+
+plot(bk.sale$gross.sqft,bk.sale$sale.price.n, main ="default plot in example code")
+plot(bk.sale$gross.sqft,bk.sale$sale.price.n, xlim = c(0,15000), ylim = c(0,1800000), main ="reduce x and y limits to get a better plot")
+plot(log(bk.sale$gross.sqft),log(bk.sale$sale.price.n), xlim = c(6,12), ylim = c(10,18), main = "plot log of sqft vs sale price")
