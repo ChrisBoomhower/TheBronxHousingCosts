@@ -162,7 +162,7 @@ source("RollingSales_MergeData.R")
 ```
 
 #Analysis
-### By plotting the log of 1, 2, and 3-family dwelling data, it is observed there is an exponential relationship between sale price and gross sqft. As gross sqft increases exponentially, sale price does as well. The plots of log data also provide clear indication that the original data had many outliers. By removing the outliers, only valid data can be reviewed further. While the example code author chose to remove the outliers from the original data, we chose to leave the outliers to embarass the individuals who originally collected the data.
+### By plotting the log of 1, 2, and 3-family dwelling data, it is observed there is an exponential relationship between sale price and gross sqft. As gross sqft increases exponentially, sale price does as well. The plots of log data also provide clear indication that the original data had many outliers. By removing the outliers, only valid data can be reviewed further. While the example code author chose to remove the outliers from the original data, we chose to leave the outliers to embarrass the individuals who originally collected the data.
 
 
 ```r
